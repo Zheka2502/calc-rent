@@ -105,6 +105,14 @@ namespace calc_rent
             if (!ColW.Checked) cwater = Convert.ToSingle(cwatert.Text);
             else cwater = Convert.ToSingle(cwatert.Text) * Convert.ToSingle(textBox2.Text);
             itog.AppendText("За холодную воду:" + cwater.ToString() + '\n');
+            
+              otopl = Convert.ToSingle(otoplt.Text) * Convert.ToSingle(pl.Value);
+            itog.AppendText("За отопление:" + otopl.ToString() + '\n');
+            if ((!GasCB.Checked) && (!HotW.Checked) && (!ColW.Checked)) comm = (otopl + hwater + cwater + gas + elect);
+            else if ((!GasCB.Checked) && (!HotW.Checked)) comm = (otopl + hwater + (cwater*Convert.ToSingle(cH.Value)) + gas + elect);
+            else if ((!GasCB.Checked)) comm = (otopl + (hwater*Convert.ToSingle(cH.Value)) + (cwater * Convert.ToSingle(cH.Value)) + gas + elect);
+            else if ((!ColW.Checked)) comm = (otopl + (hwater * Convert.ToSingle(cH.Value)) + cwater  + (gas* Convert.ToSingle(cH.Value)) + elect);
+            else comm = (otopl + (hwater + cwater + gas) * Convert.ToSingle(cH.Value) + elect);
 
             otopl = Convert.ToSingle(otoplt.Text) * Convert.ToSingle(pl.Value);
             itog.AppendText("За отопление:" + otopl.ToString() + '\n');
