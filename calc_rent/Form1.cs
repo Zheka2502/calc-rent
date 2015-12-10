@@ -11,6 +11,7 @@ namespace calc_rent
 {
     public partial class Form1 : Form
     {
+        //проверка 1
         Flat flat;
         public float elect, gas, hwater, cwater, otopl, musor = 80, lif = 30, repair = 70, result, comm = 0;
         public Form1()
